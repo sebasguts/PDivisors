@@ -44,13 +44,16 @@ InstallMethod( Variety,
     
 end );
 
-InstallMethod( PrimeDivisors,
+##
+InstallMethod( PrimeDivisorsOfMonoid,
                "for p-div-monoids",
                [ IsPDivisorMonoid ],
                
   function( monoid )
     
-    return Set( monoid!.primedivisors );
+    monoid!.primedivisors := Unique( monoid!.primedivisors );
+    
+    return monoid!.primedivisors;
     
 end );
 
@@ -100,7 +103,7 @@ InstallMethod( AddContainedPDivisor,
                
   function( monoid, divisor )
     
-    Add( monoid.pdivisors, divisor );
+    Add( monoid!.pdivisors, divisor );
     
 end );
 
@@ -112,7 +115,7 @@ end );
 
 ##
 InstallMethod( PDivisorMonoid,
-               "constructor"
+               "constructor",
                [ IsCone ],
                
   function( cone )
@@ -131,7 +134,7 @@ end );
 
 ##
 InstallMethod( PDivisorMonoid,
-               "constructor"
+               "constructor",
                [ IsObject, IsCone ],
                
   function( variety, cone )
@@ -147,5 +150,42 @@ InstallMethod( PDivisorMonoid,
                            );
     
     return monoid;
+    
+end );
+
+############################################
+##
+## Display and View
+##
+############################################
+
+##
+InstallMethod( ViewObj,
+               "for p-div-mon",
+               [ IsPDivisorMonoid ],
+               
+  function( monoid )
+    
+    Print( "<A" );
+    
+    Print( " P-Divisor Monoid" );
+    
+    Print( ">" );
+    
+end );
+
+
+##
+InstallMethod( Display,
+               "for p-div-mon",
+               [ IsPDivisorMonoid ],
+               
+  function( monoid )
+    
+    Print( "A" );
+    
+    Print( " P-Divisor Monoid" );
+    
+    Print( "\n" );
     
 end );

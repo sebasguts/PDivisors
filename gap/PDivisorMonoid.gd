@@ -23,8 +23,8 @@ DeclareAttribute( "Variety",
 DeclareAttribute( "CommonTailCone",
                   IsPDivisorMonoid );
 
-DeclareOperation( "PrimeDivisors",
-                  IsPDivisorMonoid );
+DeclareOperation( "PrimeDivisorsOfMonoid",
+                  [ IsPDivisorMonoid ] );
 
 DeclareOperation( "AddPrimeDivisorList",
                   [ IsPDivisorMonoid, IsList ] );

@@ -1,0 +1,13 @@
+LoadPackage( "PDivisors" );
+LoadPackage( "ToricVarieties" );
+F:=Fan([[[1]],[[-1]]]);
+T:=ToricVariety(F);
+P:=TorusInvariantPrimeDivisors(T);
+C:=Cone([[1,0],[0,1]]);
+M:=PDivisorMonoid(T,C);
+AddPrimeDivisorList(M,P);
+Pol1 := Polytope([[1,0],[0,1]]);
+Pol2 := Polytope([[1,0],[0,-1]]);
+div1 := PDivisor(Pol1,P[1],M);
+div2 := PDivisor(Pol2,P[2],M);
+div3 := div1 + div2 + div1;

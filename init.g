@@ -8,3 +8,6 @@
 ##
 #############################################################################
 
+ReadPackage( "PDivisors", "gap/PDivisorMonoid.gd" );
+
+ReadPackage( "PDivisors", "gap/PDivisor.gd" );
